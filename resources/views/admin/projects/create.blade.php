@@ -36,6 +36,13 @@
                             @enderror
                         </div>
                         <div class="mb-3">
+                            <label for="type_id" class="form-label">Select type</label>
+                            <select type="text" name="type_id" class="form-control" id="type_id" placeholder="Type..." value="{{ old('name') }}" ></select>
+                            @error('type_id')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
                             <label for="description" class="form-label">Description</label>
                             <textarea class="form-control" name="description" id="description" cols="30" rows="5" placeholder="Description..." >{{ old('description') }}</textarea>
                         </div>
