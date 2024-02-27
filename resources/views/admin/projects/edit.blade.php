@@ -26,9 +26,13 @@
                         <div class="mb-3">
                             @if($project->img != null)
                                 @if (Str::contains($project->img, 'https'))
-                                    <img src="{{$project['img']}}" class="card-img-top my-3" style="width: 300px" >
+                                    <div class="my-3 d-flex justify-content-center" >
+                                        <img src="{{$project['img']}}" class="card-img-top my-3" style="width: 300px" >
+                                    </div>
                                 @else
-                                    <img src="{{ asset('/storage/' . $project->img) }}" class="card-img-top my-3" style="width: 300px">
+                                    <div class="my-3 d-flex justify-content-center" >
+                                        <img src="{{ asset('/storage/' . $project->img) }}" class="card-img-top my-3" style="width: 300px">
+                                    </div>
                                 @endif      
                             @else
                                 <div class="my-3 d-flex justify-content-center">
