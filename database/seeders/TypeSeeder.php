@@ -4,6 +4,10 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
+use Faker\Factory as Faker;
+
+use App\Models\Type;
 
 class TypeSeeder extends Seeder
 {
@@ -12,8 +16,18 @@ class TypeSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
-        //
+        $faker = Faker::create();
+
+        for ($i=0; $i < 10; $i++) {
+            $name = $faker->unique()->word();
+            $slug = Str::slug($name);
+
+            Type::create([
+                'name' => $name,
+                'slug' => $slug,
+            ]);
+        }
     }
 }
