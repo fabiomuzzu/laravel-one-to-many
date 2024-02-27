@@ -25,6 +25,7 @@ class UpdateProjectRequest extends FormRequest
     {
         return [
             'name' => 'required',
+            'type_id' => 'required|exists:types,id',
             'repository_link' => 'required',
             'date_start' => 'required',
         ];
@@ -33,6 +34,8 @@ class UpdateProjectRequest extends FormRequest
     public function messages(){
         return [
             'name.required' => 'The project name is required',
+            'type_id.required' => 'Project Type is required.',
+            'type_id.exists' => 'Project Type is not valid.',
             'repository_link.required' => 'The repository link is required',
             'date_start.required' => 'The start date is required',
         ];

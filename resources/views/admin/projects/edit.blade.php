@@ -56,6 +56,20 @@
                             @endif
                         </div>
                         <div class="mb-3">
+                            <label for="typeProject" class="form-label">Select project type</label>
+                            <select name="type_id" class="form-select @error('type_id') is-invalid border-danger @enderror" id="type_id" placeholder="Type..." id="typeProject">
+
+                                <option value="{{old('type_id')}}" selected>Select type...</option>
+                                @foreach ($types as $type)
+                                    <option value="{{$type->id}}" @selected($type->id == old('type_id', $project->type ? $project->type->id : ''))>{{$type->name}}</option>  
+                                @endforeach
+
+                            </select>
+                            @error('type_id')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
                             <label for="description" class="form-label">Description</label>
                             <textarea class="form-control" name="description" id="description" cols="30" rows="5" placeholder="Description..." >{{ old('description') ?? $project->description }}</textarea>
                         </div>
