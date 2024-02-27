@@ -25,6 +25,7 @@ class StoreProjectRequest extends FormRequest
     {
         return [
             'name' => 'required|unique:projects',
+            'type_id' => 'required|exists:types,id',
             'repository_link' => 'required',
             'date_start' => 'required',
         ];
@@ -34,6 +35,8 @@ class StoreProjectRequest extends FormRequest
         return [
             'name.required' => 'The project name is required',
             'name.unique' => 'The project name is already present!',
+            'type_id.required' => 'Project Type is required.',
+            'type_id.exists' => 'Project Type is not valid.',
             'repository_link.required' => 'The repository link is required',
             'date_start.required' => 'The start date is required',
         ];

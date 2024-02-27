@@ -36,8 +36,15 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="type_id" class="form-label">Select type</label>
-                            <select type="text" name="type_id" class="form-control" id="type_id" placeholder="Type..." value="{{ old('name') }}" ></select>
+                            <label for="typeProject" class="form-label">Select project type</label>
+                            <select name="type_id" class="form-select @error('type_id') is-invalid border-danger @enderror" id="type_id" placeholder="Type..." id="typeProject">
+
+                                <option value="{{old('type_id')}}" selected>Select type...</option>
+                                @foreach ($types as $type)
+                                <option value="{{$type->id}}">{{$type->name}}</option>  
+                                @endforeach
+
+                            </select>
                             @error('type_id')
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
