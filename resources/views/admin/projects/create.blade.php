@@ -73,6 +73,7 @@
                         </div>
                         <div class="text-center mt-4">
                             <button type="submit" class="btn btn-primary">Aggiungi</button>
+                            <a href="{{route('admin.projects.index')}}" class="btn btn-secondary">Go Back</a>
                         </div>
                     </div>
                 </form>

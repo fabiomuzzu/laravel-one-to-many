@@ -16,7 +16,7 @@
                     @endif
                     <div class="card-body">                    
                         <h5 class="card-title">{{$project['name']}}</h5>
-                        <p class="card-text">{{$project->type->name}}</p>
+                        <p class="card-text">{{ $project->type ? $project->type->name : 'Without type' }}</p>
                         <a class="card-text" href="{{$project['repository_link']}}">Repository link</a>
                         <p class="card-text">{{$project['description']}}</p>
                         <p class="card-text">{{$project['date_start']}}</p>
